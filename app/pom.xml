@@ -12,7 +12,7 @@
 	<artifactId>inventorycontrol</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>inventorycontrol</name>
-	<description>Demo project for Spring Boot</description>
+	<description>API Inventory Control</description>
 	<properties>
 		<java.version>17</java.version>
 		<kotlin.version>1.9.23</kotlin.version>

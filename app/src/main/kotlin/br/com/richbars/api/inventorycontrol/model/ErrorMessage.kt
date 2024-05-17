@@ -1,4 +1,6 @@
 package br.com.richbars.api.inventorycontrol.model
 
-class ErrorMessage {
-}
+data class ErrorMessage(
+    val description: String,
+    val code: Int
+)

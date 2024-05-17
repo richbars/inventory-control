@@ -1,4 +1,8 @@
 package br.com.richbars.api.inventorycontrol.repository
 
-class InventoryRepository {
-}
+import br.com.richbars.api.inventorycontrol.model.Product
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.stereotype.Repository
+
+@Repository
+interface ProductRepository : JpaRepository<Product, Long> {}
