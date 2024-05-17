@@ -4,7 +4,10 @@ import br.com.richbars.api.inventorycontrol.exception.ProductEmptyException
 import br.com.richbars.api.inventorycontrol.model.Product
 import br.com.richbars.api.inventorycontrol.service.InventoryService
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -25,5 +28,11 @@ class InventoryController(private val InventoryService: InventoryService){
             products
         }
 
+    }
+    @PostMapping("/products/addproduct")
+    fun addProduct(
+        @RequestBody request: Product
+    ): Product {
+        return InventoryService.addProduct(request)
     }
 }
