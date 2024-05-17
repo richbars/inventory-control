@@ -1,7 +1,6 @@
 package br.com.richbars.api.inventorycontrol.controller
 
 import br.com.richbars.api.inventorycontrol.exception.ProductEmptyException
-import br.com.richbars.api.inventorycontrol.exception.ProductException
 import br.com.richbars.api.inventorycontrol.model.Product
 import br.com.richbars.api.inventorycontrol.service.InventoryService
 import org.springframework.web.bind.annotation.GetMapping
