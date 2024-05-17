@@ -1,6 +1,7 @@
 FROM maven:3.8.3-openjdk-17-slim AS build
 WORKDIR /app
 COPY . .
+RUN ls -l
 RUN mvn clean package -DskipTests
 
 FROM amazoncorretto:17-alpine3.19
