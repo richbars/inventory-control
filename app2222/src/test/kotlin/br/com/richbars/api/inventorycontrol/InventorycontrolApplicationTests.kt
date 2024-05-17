@@ -1,4 +1,4 @@
-package br.com.richbar.api.inventorycontrol
+package br.com.richbars.api.inventorycontrol
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
