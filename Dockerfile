@@ -1,6 +1,6 @@
 FROM openjdk:17-jdk-alpine
-
-WORKDIR /dockerr
-COPY docker/inventorycontrol.jar /dockerr/inventorycontrol.jar
-CMD ["java", "-jar", "inventorycontrol.jar"]
+cd /app
+./mvnw clean package -DskipTests
+COPY /app/target/inventorycontrol-0.0.1-SNAPSHOT /app
 EXPOSE 8080
+CMD ["java", "-jar", "inventorycontrol-0.0.1-SNAPSHOT.jar"]
