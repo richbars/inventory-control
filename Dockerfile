@@ -1,19 +1,27 @@
 FROM maven:3.8.3-openjdk-17-slim AS build
 
-# Crie um diretório app2
+# Cria um diretório app2
 WORKDIR /app2
 
-# Copie os arquivos do diretório raiz /app para dentro de app2
+# Copia os arquivos do diretório raiz /app para dentro de app2
 COPY /app .
 
-# Verifique os arquivos copiados
+# Verifica os arquivos copiados
 RUN ls -l
 
-# Execute os comandos Maven sem mudar de diretório
+# Executa os comandos Maven sem mudar de diretório
 RUN mvn clean package -DskipTests
 
-
 FROM amazoncorretto:17-alpine3.19
-COPY --from=build /app/target/inventorycontrol-0.0.1-SNAPSHOT.jar /inventorycontrol-0.0.1-SNAPSHOT.jar
+
+# Cria um diretório app2
+WORKDIR /app2
+
+# Copia o arquivo JAR gerado durante o estágio de build para dentro de app2
+COPY --from=build /app/target/inventorycontrol-0.0.1-SNAPSHOT.jar .
+
+# Expõe a porta 8080
 EXPOSE 8080
-CMD ["java", "-jar", "/inventorycontrol-0.0.1-SNAPSHOT.jar"]
+
+# Define o comando padrão para iniciar o aplicativo Java a partir do arquivo JAR
+CMD ["java", "-jar", "inventorycontrol-0.0.1-SNAPSHOT.jar"]
